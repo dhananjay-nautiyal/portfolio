@@ -8,10 +8,14 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg" aria-hidden="true"><span class="orb orb-a"></span><span class="orb orb-b"></span><span class="orb orb-c"></span></div>
+  <div id="loader" aria-hidden="true"><span id="loadPct">0%</span></div>
+  <div class="cursor-dot" id="cDot" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cGlow" aria-hidden="true"></div>
+  <canvas id="bgNet" aria-hidden="true"></canvas>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 
-  <header class="nav glass">
-    <a class="brand" href="#top">DN<span>.dev</span></a>
+  <header class="nav glass" data-reveal="down">
+    <a class="brand magnetic" href="#top">DN<span>.dev</span></a>
     <nav class="links" id="navLinks">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -20,62 +24,73 @@
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn small" href="resume.pdf" download>Resume</a>
+      <a class="btn small magnetic" href="resume.pdf" download="dhananjay nautiyal.pdf">Resume</a>
       <button class="burger" id="burger" aria-label="Menu">☰</button>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <p class="eyebrow">Hi 👋, I'm</p>
-      <h1>Dhananjay Nautiyal</h1>
-      <p class="typing"><span id="typed"></span><span class="caret">▍</span></p>
-      <p class="sub">Java Backend Developer at <strong>Anantixia Pvt. Ltd.</strong> — I build enterprise-grade apps with Spring Boot, PostgreSQL, Redis, Docker and microservices. Currently exploring AI-powered applications.</p>
-      <div class="cta">
-        <a class="btn primary" href="#projects">View Projects</a>
-        <a class="btn" href="resume.pdf" download>Download Resume</a>
-        <a class="btn" href="mailto:dhananjaynautiyal203@gmail.com">Hire Me</a>
+      <p class="eyebrow mask"><span>Hi 👋, I'm</span></p>
+      <h1 class="mask"><span>Dhananjay Nautiyal</span></h1>
+      <p class="typing mask"><span><span id="typed"></span><span class="caret">▍</span></span></p>
+      <p class="sub" data-reveal>Java Backend Developer at <strong>Anantixia Pvt. Ltd.</strong> — I build enterprise-grade apps with Spring Boot, PostgreSQL, Redis, Docker and microservices. Currently exploring AI-powered applications.</p>
+      <div class="cta" data-reveal data-delay="150">
+        <a class="btn primary magnetic" href="#projects">View Projects</a>
+        <a class="btn magnetic" href="resume.pdf" download="dhananjay nautiyal.pdf">Download Resume</a>
+        <a class="btn magnetic" href="mailto:dhananjaynautiyal203@gmail.com">Hire Me</a>
       </div>
-      <div class="socials">
+      <div class="socials" data-reveal data-delay="250">
         <a href="https://github.com/dhananjay-nautiyal" target="_blank" rel="noopener">GitHub</a>
         <a href="https://linkedin.com/in/dhananjay-nautiyal" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:dhananjaynautiyal203@gmail.com">Email</a>
         <a href="https://anantixia.com" target="_blank" rel="noopener">Anantixia</a>
       </div>
+      <div class="stats" data-reveal data-delay="350">
+        <div><b data-count="6">0</b><i>Featured Projects</i></div>
+        <div><b data-count="5">0</b><i>Languages</i></div>
+        <div><b data-count="4">0</b><i>Databases</i></div>
+      </div>
     </section>
 
-    <section id="about" class="card glass">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>Java · Spring Boot · Microservices · PostgreSQL · Redis · Docker · Kafka · REST APIs · AI Agents ·&nbsp;</span>
+      </div>
+    </div>
+
+    <section id="about" class="card glass" data-reveal>
       <h2>About Me</h2>
       <p>🎓 Computer Science graduate (B.Tech) from India, passionate about <strong>backend engineering</strong>, clean architecture and scalable systems.</p>
       <p>💼 Software developer at <strong>Anantixia Pvt. Ltd.</strong> (joined as intern) — shipping real business systems: leave management, transport, payments, chat, reporting and more, on a Spring Boot microservices platform.</p>
       <p>🤖 Currently exploring <strong>AI agents</strong>, AI-powered applications and distributed systems.</p>
       <ul class="facts">
-        <li><span>Role</span>Java Backend Developer</li>
-        <li><span>Location</span>India · Open to opportunities</li>
-        <li><span>Education</span>B.Tech, Computer Science</li>
-        <li><span>Stack</span>Java · Spring Boot · Docker · Git</li>
+        <li data-reveal><span>Role</span>Java Backend Developer</li>
+        <li data-reveal data-delay="100"><span>Location</span>India · Open to opportunities</li>
+        <li data-reveal data-delay="200"><span>Education</span>B.Tech, Computer Science</li>
+        <li data-reveal data-delay="300"><span>Stack</span>Java · Spring Boot · Docker · Git</li>
       </ul>
     </section>
 
-    <section id="skills" class="card glass">
+    <section id="skills" class="card glass" data-reveal>
       <h2>Skills</h2>
       <div class="grid2">
-        <div><h3>Languages</h3><p>Java · JavaScript · TypeScript · Python · Kotlin</p></div>
-        <div><h3>Backend</h3><p>Spring Boot · Spring Security · JPA / Hibernate · REST APIs</p></div>
-        <div><h3>Data</h3><p>PostgreSQL · MySQL · MongoDB · Redis</p></div>
-        <div><h3>Infra &amp; Tools</h3><p>Docker · Linux · Git · CI/CD · Kafka · Kubernetes (learning)</p></div>
+        <div data-reveal><h3>Languages</h3><p>Java · JavaScript · TypeScript · Python · Kotlin</p></div>
+        <div data-reveal data-delay="100"><h3>Backend</h3><p>Spring Boot · Spring Security · JPA / Hibernate · REST APIs</p></div>
+        <div data-reveal data-delay="200"><h3>Data</h3><p>PostgreSQL · MySQL · MongoDB · Redis</p></div>
+        <div data-reveal data-delay="300"><h3>Infra &amp; Tools</h3><p>Docker · Linux · Git · CI/CD · Kafka · Kubernetes (learning)</p></div>
       </div>
     </section>
 
-    <section id="experience" class="card glass">
+    <section id="experience" class="card glass" data-reveal>
       <h2>Experience</h2>
       <div class="timeline">
-        <div class="t-item">
+        <div class="t-item" data-reveal>
           <p class="t-date">2024 — Present</p>
           <h3>Software Developer — Anantixia Pvt. Ltd.</h3>
           <p>Enterprise microservices (transport, travel, employee, payment, chat, report, exam, attendance, fee, library, notification, leave). Spring Boot · PostgreSQL · Redis · Docker · JWT auth.</p>
         </div>
-        <div class="t-item">
+        <div class="t-item" data-reveal data-delay="150">
           <p class="t-date">Previously</p>
           <h3>Intern — Anantixia</h3>
           <p>Learned production backend development; converted to full-time developer.</p>
@@ -84,39 +99,39 @@
     </section>
 
     <section id="projects">
-      <h2 class="sec-title">Projects</h2>
+      <h2 class="sec-title" data-reveal>Projects</h2>
       <div class="cards">
-        <article class="card glass">
+        <article class="card glass tilt" data-reveal>
           <h3>🎵 Music</h3>
           <p>Modern multi-platform music client — YouTube Music, JioSaavn, Spotify import, local playback. Android + desktop + backend.</p>
           <p class="tags">Kotlin · Go · Android</p>
           <a href="https://github.com/dhananjay-nautiyal/music" target="_blank" rel="noopener">GitHub →</a>
         </article>
-        <article class="card glass">
+        <article class="card glass tilt" data-reveal data-delay="100">
           <h3>📺 Anime Watch</h3>
           <p>Anime tracker &amp; streaming client — Android app, web app and Spring Boot backend with OTA updates.</p>
           <p class="tags">Java · Spring Boot · React Native</p>
           <a href="https://github.com/dhananjay-nautiyal/anime-watch" target="_blank" rel="noopener">GitHub →</a>
         </article>
-        <article class="card glass">
+        <article class="card glass tilt" data-reveal data-delay="200">
           <h3>💬 Astro Talk</h3>
           <p>Real-time chat application with live messaging and in-app updates.</p>
           <p class="tags">JavaScript · Java</p>
           <a href="https://github.com/dhananjay-nautiyal/astro-talk" target="_blank" rel="noopener">GitHub →</a>
         </article>
-        <article class="card glass">
+        <article class="card glass tilt" data-reveal>
           <h3>💰 Smart Expense Analyzer</h3>
           <p>Smart expense tracking and analysis built on Java 21.</p>
           <p class="tags">Java 21</p>
           <a href="https://github.com/dhananjay-nautiyal/smart-expense-analyzer-java21" target="_blank" rel="noopener">GitHub →</a>
         </article>
-        <article class="card glass">
+        <article class="card glass tilt" data-reveal data-delay="100">
           <h3>🤖 HCP-CRM</h3>
           <p>CRM application for healthcare professionals.</p>
           <p class="tags">TypeScript</p>
           <a href="https://github.com/dhananjay-nautiyal/HCP-CRM" target="_blank" rel="noopener">GitHub →</a>
         </article>
-        <article class="card glass">
+        <article class="card glass tilt" data-reveal data-delay="200">
           <h3>🛒 Moglix</h3>
           <p>E-commerce style application built with Java.</p>
           <p class="tags">Java</p>
@@ -125,17 +140,18 @@
       </div>
     </section>
 
-    <section id="contact" class="card glass center">
+    <section id="contact" class="card glass center" data-reveal>
       <h2>Contact</h2>
       <p>Open to backend roles, freelance work and interesting collaborations.</p>
       <div class="cta">
-        <a class="btn primary" href="mailto:dhananjaynautiyal203@gmail.com">dhananjaynautiyal203@gmail.com</a>
-        <a class="btn" href="https://linkedin.com/in/dhananjay-nautiyal" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://github.com/dhananjay-nautiyal" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn primary magnetic" href="mailto:dhananjaynautiyal203@gmail.com">dhananjaynautiyal203@gmail.com</a>
+        <a class="btn magnetic" href="https://linkedin.com/in/dhananjay-nautiyal" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn magnetic" href="https://github.com/dhananjay-nautiyal" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
   </main>
 
+  <button id="toTop" aria-label="Scroll to top">↑</button>
   <footer>© <span id="year"></span> Dhananjay Nautiyal · Built with plain HTML/CSS/JS · Hosted on GitHub Pages</footer>
   <script src="script.js"></script>
 </body>
